@@ -49,8 +49,8 @@ int main ()
     map["one"] = 1;
 
     // Constant complexity
-    std::unordered_set<std::string> unordered_set;
-    std::unordered_map<std::string, int> umap;
+    std::unordered_set<std::string> unordered_set = {{"one", 1}, {"two",2}};
+    std::unordered_map<std::string, int> umap = {{"one", 1}, {"two",2}};
 
     // Searching
     if (set.find ("two") != set.end ())
@@ -63,6 +63,16 @@ int main ()
     {
         std::cout << (*it).first << " " <<(*it).second << std::endl;
     }
+
+    // or
+    if (map.count("two") > 0)
+    {
+        // exists
+    }
+
+    // accessing elements
+    umap["one"] = 10; // no exception, crash
+    umap.at("one") = 10; // exception key error!
 
     // Sorting vector
     std::sort(vector.begin (), vector.end ());
